@@ -6,5 +6,4 @@ The scene will feature the protagonist's ship; The Nebuchadnezzar flying through
 
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/PNK2CrhADo0/0.jpg)](https://www.youtube.com/watch?v=PNK2CrhADo0)
 
-Reference-style: 
-![alt text][nebu]
+![Nebuchadnezzar](https://images4.alphacoders.com/962/thumb-1920-962514.jpg)
