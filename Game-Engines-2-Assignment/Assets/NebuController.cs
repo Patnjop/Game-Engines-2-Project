@@ -24,7 +24,6 @@ public class NebuController : MonoBehaviour
         {
             this.GetComponent<FollowPath>().enabled = false;
             this.GetComponent<JitterWander>().enabled = true;
-            
         }
     }
 
