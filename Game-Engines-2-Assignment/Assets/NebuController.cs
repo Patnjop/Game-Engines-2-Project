@@ -7,10 +7,12 @@ public class NebuController : MonoBehaviour
     public Transform sentinelles;
     public int wakeDistance;
     public int jitterDistance;
+    public Boid b;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine("disable");
+        b = GetComponent<Boid>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,8 @@ public class NebuController : MonoBehaviour
         {
             this.GetComponent<FollowPath>().enabled = false;
             this.GetComponent<JitterWander>().enabled = true;
+            b.maxSpeed = 100;
+            b.maxForce = 20;
         }
     }
 
