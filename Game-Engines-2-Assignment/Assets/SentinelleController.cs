@@ -26,8 +26,8 @@ public class SentinelleController : MonoBehaviour
             for (int i = 0; i < boids.Count; i++)
             {
                 Sentinelles[i].GetComponent<OffsetPursue>().enabled = false;
-                boids[i].maxSpeed = 110;
-                boids[i].maxForce = 25;
+                boids[i].maxSpeed = 125;
+                boids[i].maxForce = 30;
             }
         }
     }

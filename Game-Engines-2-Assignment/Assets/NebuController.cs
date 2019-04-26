@@ -5,8 +5,9 @@ using UnityEngine;
 public class NebuController : MonoBehaviour
 {
     public Transform sentinelles;
-    public int wakeDistance;
-    public int jitterDistance;
+    public int wakeDistance, jitterDistance, EMPDistance;
+    public float EMPseconds;
+    public ParticleSystem ps;
     public Boid b;
     public GameObject Sentinelles2;
     public GameObject Sentinelles3;
@@ -37,6 +38,10 @@ public class NebuController : MonoBehaviour
             Sentinelles3.SetActive(true);
             Sentinelles4.SetActive(true);
         }
+        if (Vector3.Distance(sentinelles.position, transform.position) < EMPDistance)
+        {
+            StartCoroutine("EMP");
+        }
     }
 
     IEnumerator disable()
@@ -44,5 +49,11 @@ public class NebuController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         this.GetComponent<FollowPath>().enabled = false;
         this.GetComponent<JitterWander>().enabled = false;
+    }
+
+    IEnumerator EMP()
+    {
+        yield return new WaitForSeconds(EMPseconds);
+        ps.Play();
     }
 }

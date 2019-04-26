@@ -1352,12 +1352,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2654960525859487297}
-  - component: {fileID: 8116600220863309540}
-  - component: {fileID: 8116600220863309541}
-  - component: {fileID: 8116600220863309542}
+  - component: {fileID: 657769502}
+  - component: {fileID: 657769500}
+  - component: {fileID: 657769501}
+  - component: {fileID: 657769505}
+  - component: {fileID: 6722806297933876425}
+  - component: {fileID: 3363012186776828691}
   m_Layer: 0
   m_Name: Sentinelle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1370,14 +1373,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2654960525859775073}
   m_LocalRotation: {x: 0, y: 0.7301623, z: -0, w: -0.6832738}
-  m_LocalPosition: {x: 24.92, y: -0.94, z: -10.55}
+  m_LocalPosition: {x: 24.92, y: -1.8, z: -10.55}
   m_LocalScale: {x: 1.0927904, y: 1.0927902, z: 1.0927904}
   m_Children:
   - {fileID: 2654960525859487299}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 266.2, z: 0}
---- !u!95 &8116600220863309540
+--- !u!95 &657769502
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -1396,7 +1399,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8116600220863309541
+--- !u!114 &657769500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654960525859775073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cf28c235020b8479c770fbbd41604f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: {x: 0, y: 0, z: 0}
+  acceleration: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  mass: 1
+  damping: 0.16
+  banking: 0
+  maxSpeed: 62
+  maxForce: 10
+--- !u!114 &657769501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654960525859775073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc29d8b64dd73694483f9e288b9912a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  force: {x: 0, y: 0, z: 0}
+  boid: {fileID: 0}
+  leader: {fileID: 0}
+--- !u!114 &657769505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1413,7 +1452,7 @@ MonoBehaviour:
   boid: {fileID: 0}
   targetGameObject: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
---- !u!114 &8116600220863309542
+--- !u!114 &6722806297933876425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1422,17 +1461,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 2654960525859775073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03cf28c235020b8479c770fbbd41604f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8325288662b216f4498ef044c12cb269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: {x: 0, y: 0, z: 0}
-  acceleration: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
-  mass: 1
-  damping: 0.18
-  banking: 0.1
-  maxSpeed: 58
-  maxForce: 10
+--- !u!65 &3363012186776828691
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654960525859775073}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6254332, y: 1.5543263, z: 1.6899354}
+  m_Center: {x: 2.8070943, y: 2.2466266, z: 5.6580653}
 --- !u!1 &2654960525859775075
 GameObject:
   m_ObjectHideFlags: 0
