@@ -12,11 +12,19 @@ public class ParticleDisable : MonoBehaviour
         o = this.GetComponent<OffsetPursue>();
         s = GetComponent<Seek>();
     }
-
+    
     private void OnParticleCollision(GameObject other)
     {
-        o.enabled = false;
+        Debug.Log("Ouch");
+        if (o != null)
+        {
+            o.enabled = false;
+        }
         s.enabled = false;
+        if (GetComponent<SentinelleBehaviours>() != null)
+        {
+            this.GetComponent<SentinelleBehaviours>().EMPed = true;
+        }
     }
     // Update is called once per frame
     void Update()

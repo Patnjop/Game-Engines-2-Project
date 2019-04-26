@@ -12,6 +12,7 @@ public class NebuController : MonoBehaviour
     public GameObject Sentinelles2;
     public GameObject Sentinelles3;
     public GameObject Sentinelles4;
+    public GameObject Sentinelles5;
     bool changed = false;
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class NebuController : MonoBehaviour
             Sentinelles2.SetActive(true);
             Sentinelles3.SetActive(true);
             Sentinelles4.SetActive(true);
+            Sentinelles5.SetActive(true);
         }
         if (Vector3.Distance(sentinelles.position, transform.position) < EMPDistance)
         {
