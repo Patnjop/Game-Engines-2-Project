@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class SentinelleController : MonoBehaviour
 {
-    public List<Boid> boids = new List<Boid>();
     public GameObject Ship;
-    public GameObject[] Sentinelles;
 
     // Start is called before the first frame update
     void Start()
     {
-        Sentinelles = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject s in Sentinelles)
-        {
-            boids.Add(s.GetComponent<Boid>());
-        }      
+ 
     }
 
     // Update is called once per frame
@@ -23,12 +17,8 @@ public class SentinelleController : MonoBehaviour
     {
         if (Vector3.Distance(this.transform.position, Ship.transform.position) < 100)
         {
-            for (int i = 0; i < boids.Count; i++)
-            {
-                Sentinelles[i].GetComponent<OffsetPursue>().enabled = false;
-                boids[i].maxSpeed = 125;
-                boids[i].maxForce = 30;
-            }
+            GetComponent<Boid>().maxSpeed = 155;
+            GetComponent<Boid>().maxForce = 31;
         }
     }
 }

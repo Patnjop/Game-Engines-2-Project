@@ -13,18 +13,4 @@ public class triggerScript : MonoBehaviour
         }
         Debug.Log("oi");
     }
-    /*private void OnParticleTrigger()
-    {
-        ParticleSystem ps = GetComponent<ParticleSystem>();
-
-        List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
-
-        int numEnter = ps.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
-
-        for (int i = 0; i < numEnter; i++)
-        {
-            ParticleSystem.Particle p = enter[i];
-
-        }
-    }*/
 }

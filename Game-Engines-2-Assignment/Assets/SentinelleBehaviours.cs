@@ -10,6 +10,13 @@ public class SentinelleBehaviours : MonoBehaviour
     {
         GetComponent<StateMachine>().ChangeState(new PursueState());
     }
+    void Update()
+    {
+        if (ship.GetComponent<NebuController>().EMPCount == 2)
+        {
+            EMPed = true;
+        }
+    }
 }
 public class PursueState : State
 {
@@ -19,9 +26,14 @@ public class PursueState : State
     }
     public override void Think()
     {
-        if (Vector3.Distance(owner.transform.position, owner.GetComponent<SentinelleBehaviours>().ship.transform.position) < 100 && owner.GetComponent<SentinelleBehaviours>().EMPed == false)
+        if (Time.time >= 40)
         {
-            owner.ChangeState(new SeekState());
+            if (Vector3.Distance(owner.transform.position, owner.GetComponent<SentinelleBehaviours>().ship.transform.position) > 100 && owner.GetComponent<SentinelleBehaviours>().EMPed == false)
+            {
+                owner.ChangeState(new SeekState());
+                owner.GetComponent<Boid>().maxSpeed = 150;
+                owner.GetComponent<Boid>().maxForce = 30;
+            }
         }
     }
     public override void Exit()
@@ -41,6 +53,8 @@ public class SeekState : State
         if (Vector3.Distance(owner.transform.position, owner.GetComponent<SentinelleBehaviours>().ship.transform.position) < 20 && owner.GetComponent<SentinelleBehaviours>().EMPed == false)
         {
             owner.ChangeState(new PursueState());
+            owner.GetComponent<Boid>().maxSpeed = 110;
+            owner.GetComponent<Boid>().maxForce = 20;
         }
     }
     public override void Exit()

@@ -21,14 +21,18 @@ public class ParticleDisable : MonoBehaviour
             o.enabled = false;
         }
         s.enabled = false;
-        if (GetComponent<SentinelleBehaviours>() != null)
-        {
-            this.GetComponent<SentinelleBehaviours>().EMPed = true;
-        }
+        this.GetComponent<SentinelleBehaviours>().EMPed = true;
     }
     // Update is called once per frame
     void Update()
     {
-        
+        if (GetComponent<SentinelleBehaviours>().EMPed == true)
+        {
+            if (o != null)
+            {
+                o.enabled = false;
+            }
+            s.enabled = false;
+        }
     }
 }

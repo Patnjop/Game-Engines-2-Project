@@ -419,18 +419,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &1435475713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8154012955966111117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e16b08dc344f3c47bc58a28ad912e38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7563504203238126720
 GameObject:
   m_ObjectHideFlags: 0
@@ -4818,7 +4806,7 @@ GameObject:
   - component: {fileID: 7563504201973295045}
   - component: {fileID: 7563504203238126903}
   - component: {fileID: 375539343}
-  - component: {fileID: 375539344}
+  - component: {fileID: 1286146366169835231}
   - component: {fileID: 375539345}
   m_Layer: 0
   m_Name: Nebuchannezzar
@@ -4902,7 +4890,7 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   slowingDistance: 0
   targetGameObject: {fileID: 0}
---- !u!114 &375539344
+--- !u!114 &1286146366169835231
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4911,15 +4899,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7563504203238126898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c2489e1e9daa45469883c0521e042ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 43a7b496949396a43a164fc91ac04d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 1
   force: {x: 0, y: 0, z: 0}
   boid: {fileID: 0}
-  distance: 15
-  radius: 10
-  jitter: 75
+  targetGameObject: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
 --- !u!114 &375539345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4942,6 +4929,7 @@ MonoBehaviour:
   Sentinelles2: {fileID: 0}
   Sentinelles3: {fileID: 0}
   Sentinelles4: {fileID: 0}
+  Sentinelles5: {fileID: 0}
 --- !u!1 &7563504203238126900
 GameObject:
   m_ObjectHideFlags: 0
@@ -6095,6 +6083,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1435475713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8154012955966111117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e16b08dc344f3c47bc58a28ad912e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7563504201444124374
 PrefabInstance:
   m_ObjectHideFlags: 0
