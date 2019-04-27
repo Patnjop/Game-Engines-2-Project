@@ -9,12 +9,14 @@ public class NebuController : MonoBehaviour
     public float EMPseconds;
     public ParticleSystem ps;
     public Boid b;
+    public GameObject[] Lights;
     public GameObject Sentinelles2;
     public GameObject Sentinelles3;
     public GameObject Sentinelles4;
     public GameObject Sentinelles5;
+    public GameObject finalTarget;
     public GameObject CameraPrefab, SentCam, OldCamera, PathAlt;
-    bool changed = false, newCamera = false, changed2 = false, test = false;
+    bool changed = false, newCamera = false, changed2 = false, test = false, slowdown = false;
     public bool EMPUsed = false;
     // Start is called before the first frame update
     void Start()
@@ -49,12 +51,7 @@ public class NebuController : MonoBehaviour
             Debug.Log("biggle");
             if (EMPUsed == false)
             {
-                StartCoroutine("EMP");
-                if (test == false)
-                {
-                    EMPCount++;
-                    test = true;
-                }
+                StartCoroutine("EMP");     
             }
             if (newCamera == false)
             {
@@ -64,9 +61,25 @@ public class NebuController : MonoBehaviour
                 StartCoroutine("CameraSwitch");
             }
         }
+        if (EMPCount == 1)
+        {
+            EMPseconds = 0.75f;
+        }
         if (EMPCount == 2)
         {
             StartCoroutine("CameraSwitch2");
+        }
+        if (slowdown == true)
+        {
+            if (GetComponent<Boid>().maxSpeed > 5)
+            {
+                GetComponent<Boid>().maxSpeed = Vector3.Distance(transform.position, finalTarget.transform.position) / 10;
+            }
+            else if (GetComponent<Boid>().maxSpeed <= 5)
+            {
+                GetComponent<Boid>().maxSpeed = 0;
+                StartCoroutine("SwitchOff");
+            }
         }
     }
 
@@ -81,6 +94,11 @@ public class NebuController : MonoBehaviour
     {
         yield return new WaitForSeconds(EMPseconds);
         ps.Play();
+        if (test == false)
+        {
+            EMPCount++;
+            test = true;
+        }
         EMPUsed = true;
         GetComponent<Flee>().enabled = false;
         GetComponent<FollowPath>().enabled = true;
@@ -104,8 +122,20 @@ public class NebuController : MonoBehaviour
 
     IEnumerator CameraSwitch2()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
         SentCam.SetActive(false);
         OldCamera.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        slowdown = true;
+    }
+
+    IEnumerator SwitchOff()
+    {
+        yield return new WaitForSeconds(1f);
+        for (int i = 0; i < Lights.Length; i++)
+        {
+            yield return new WaitForSeconds(0.5f);
+            Lights[i].SetActive(false);
+        }
     }
 }

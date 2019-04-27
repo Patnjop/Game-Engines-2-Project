@@ -31,7 +31,7 @@ public class PursueState : State
             if (Vector3.Distance(owner.transform.position, owner.GetComponent<SentinelleBehaviours>().ship.transform.position) > 100 && owner.GetComponent<SentinelleBehaviours>().EMPed == false)
             {
                 owner.ChangeState(new SeekState());
-                owner.GetComponent<Boid>().maxSpeed = 150;
+                owner.GetComponent<Boid>().maxSpeed = 145;
                 owner.GetComponent<Boid>().maxForce = 30;
             }
         }
