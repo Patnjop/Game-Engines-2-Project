@@ -5,6 +5,7 @@ using UnityEngine;
 public class SentinelleBehaviours : MonoBehaviour
 {
     public GameObject ship;
+    public GameObject target;
     public bool EMPed = false;
     void Start()
     {
@@ -15,6 +16,11 @@ public class SentinelleBehaviours : MonoBehaviour
         if (ship.GetComponent<NebuController>().EMPCount == 2)
         {
             EMPed = true;
+        }
+        if (ship.GetComponent<NebuController>().canActivate == true)
+        {
+            GetComponent<Seek>().enabled = true;
+            GetComponent<Seek>().targetGameObject = target;
         }
     }
 }

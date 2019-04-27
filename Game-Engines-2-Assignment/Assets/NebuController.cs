@@ -17,7 +17,7 @@ public class NebuController : MonoBehaviour
     public GameObject finalTarget;
     public GameObject CameraPrefab, SentCam, OldCamera, PathAlt;
     bool changed = false, newCamera = false, changed2 = false, test = false, slowdown = false;
-    public bool EMPUsed = false;
+    public bool EMPUsed = false, canActivate = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -115,7 +115,7 @@ public class NebuController : MonoBehaviour
     IEnumerator CameraSwitch()
     {
         newCamera = true;
-        yield return new WaitForSeconds(12f);
+        yield return new WaitForSeconds(9f);
         CameraPrefab.SetActive(false);
         SentCam.SetActive(true);
     }
@@ -137,5 +137,6 @@ public class NebuController : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             Lights[i].SetActive(false);
         }
+        canActivate = true;
     }
 }

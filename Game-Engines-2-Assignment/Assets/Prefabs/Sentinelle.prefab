@@ -1505,6 +1505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 7563504203238126898, guid: 4560a93c32f67a34c9328dfdfc053949, type: 3}
+  EMPed: 0
 --- !u!1 &2654960525859775075
 GameObject:
   m_ObjectHideFlags: 0
