@@ -8,19 +8,23 @@ public class NebuController : MonoBehaviour
     public int wakeDistance, jitterDistance, EMPDistance, EMPCount;
     public float EMPseconds;
     public ParticleSystem ps;
+    public Transform laserpoint;
     public Boid b;
     public GameObject[] Lights;
+    public GameObject[] SentinelleArray;
     public GameObject Sentinelles2;
     public GameObject Sentinelles3;
     public GameObject Sentinelles4;
     public GameObject Sentinelles5;
     public GameObject finalTarget;
+    public GameObject laser;
     public GameObject CameraPrefab, SentCam, OldCamera, PathAlt;
     bool changed = false, newCamera = false, changed2 = false, test = false, slowdown = false;
     public bool EMPUsed = false, canActivate = false;
     // Start is called before the first frame update
     void Start()
     {
+        SentinelleArray = GameObject.FindGameObjectsWithTag("Enemy");
         StartCoroutine("disable");
         b = GetComponent<Boid>();
     }
@@ -61,6 +65,13 @@ public class NebuController : MonoBehaviour
                 StartCoroutine("CameraSwitch");
             }
         }
+        foreach (GameObject sent in SentinelleArray)
+        {
+            if (Vector3.Distance(transform.position, sent.transform.position) < 60)
+            {
+                StartCoroutine("Shoot");            
+            }
+        }
         if (EMPCount == 1)
         {
             EMPseconds = 0.75f;
@@ -81,6 +92,13 @@ public class NebuController : MonoBehaviour
                 StartCoroutine("SwitchOff");
             }
         }
+    }
+
+    IEnumerator Shoot()
+    {
+        yield return new WaitForSeconds(0.3f);
+        Vector3 location = transform.TransformPoint(laserpoint.position);
+        GameObject Bullet = Instantiate(laser, laserpoint.position, Quaternion.identity);
     }
 
     IEnumerator disable()
