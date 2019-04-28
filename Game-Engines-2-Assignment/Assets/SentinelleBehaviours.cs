@@ -23,6 +23,33 @@ public class SentinelleBehaviours : MonoBehaviour
             GetComponent<Seek>().targetGameObject = target;
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            GetComponent<Seperate>().avoided = false;
+            Debug.Log("Collision" + gameObject.name + " " + other.gameObject.name);
+            GetComponent<StateMachine>().ChangeState(new SeperateState());
+        }
+    }
+}
+public class SeperateState : State
+{
+    public override void Enter()
+    {
+        owner.GetComponent<Seperate>().enabled = true;
+    }
+    public override void Think()
+    {
+        if (owner.GetComponent<Seperate>().avoided == true)
+        {
+            owner.ChangeState(new SeekState());
+        }
+    }
+    public override void Exit()
+    {
+        owner.GetComponent<Seperate>().enabled = false;
+    }
 }
 public class PursueState : State
 {
