@@ -43,7 +43,14 @@ public class SeperateState : State
     {
         if (owner.GetComponent<Seperate>().avoided == true)
         {
-            owner.ChangeState(new SeekState());
+            if (Vector3.Distance(owner.transform.position, owner.GetComponent<SentinelleBehaviours>().ship.transform.position) < 20 && owner.GetComponent<SentinelleBehaviours>().EMPed == false)
+            {
+                owner.ChangeState(new PursueState());
+            }
+            else if (Vector3.Distance(owner.transform.position, owner.GetComponent<SentinelleBehaviours>().ship.transform.position) > 100 && owner.GetComponent<SentinelleBehaviours>().EMPed == false)
+            {
+                owner.ChangeState(new SeekState());
+            }
         }
     }
     public override void Exit()
@@ -64,7 +71,7 @@ public class PursueState : State
             if (Vector3.Distance(owner.transform.position, owner.GetComponent<SentinelleBehaviours>().ship.transform.position) > 100 && owner.GetComponent<SentinelleBehaviours>().EMPed == false)
             {
                 owner.ChangeState(new SeekState());
-                owner.GetComponent<Boid>().maxSpeed = 145;
+                owner.GetComponent<Boid>().maxSpeed = 155;
                 owner.GetComponent<Boid>().maxForce = 30;
             }
         }
@@ -83,7 +90,7 @@ public class SeekState : State
     }
     public override void Think()
     {
-        if (Vector3.Distance(owner.transform.position, owner.GetComponent<SentinelleBehaviours>().ship.transform.position) < 20 && owner.GetComponent<SentinelleBehaviours>().EMPed == false)
+        if (Vector3.Distance(owner.transform.position, owner.GetComponent<SentinelleBehaviours>().ship.transform.position) < 35 && owner.GetComponent<SentinelleBehaviours>().EMPed == false)
         {
             owner.ChangeState(new PursueState());
             owner.GetComponent<Boid>().maxSpeed = 110;
