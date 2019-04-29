@@ -19,12 +19,11 @@ public class NebuController : MonoBehaviour
     public GameObject finalTarget;
     public GameObject laser;
     public GameObject CameraPrefab, SentCam, OldCamera, PathAlt;
-    bool changed = false, newCamera = false, changed2 = false, test = false, slowdown = false;
+    bool changed = false, newCamera = false, changed2 = false, test = false, slowdown = false, shooting = false, sentinellescollected = false;
     public bool EMPUsed = false, canActivate = false;
     // Start is called before the first frame update
     void Start()
     {
-        SentinelleArray = GameObject.FindGameObjectsWithTag("Enemy");
         StartCoroutine("disable");
         b = GetComponent<Boid>();
     }
@@ -47,6 +46,11 @@ public class NebuController : MonoBehaviour
             Sentinelles3.SetActive(true);
             Sentinelles4.SetActive(true);
             Sentinelles5.SetActive(true);
+            sentinellescollected = true;
+        }
+        if (sentinellescollected = true && SentinelleArray.Length < 172)
+        {
+            SentinelleArray = GameObject.FindGameObjectsWithTag("Enemy");
         }
 
         if (Vector3.Distance(sentinelles.position, transform.position) < EMPDistance && Time.time > 53)
@@ -67,9 +71,13 @@ public class NebuController : MonoBehaviour
         }
         foreach (GameObject sent in SentinelleArray)
         {
-            if (Vector3.Distance(transform.position, sent.transform.position) < 60)
+            if (Vector3.Distance(transform.position, sent.transform.position) < 85)
             {
-                StartCoroutine("Shoot");            
+                if (shooting == false && canActivate == false)
+                {
+                    StartCoroutine("Shoot");
+                }
+                shooting = true;
             }
         }
         if (EMPCount == 1)
@@ -99,6 +107,8 @@ public class NebuController : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         Vector3 location = transform.TransformPoint(laserpoint.position);
         GameObject Bullet = Instantiate(laser, laserpoint.position, Quaternion.identity);
+        shooting = false;
+        //Bullet.transform.SetParent(transform);
     }
 
     IEnumerator disable()

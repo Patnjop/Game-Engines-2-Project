@@ -23,6 +23,18 @@ public class ParticleDisable : MonoBehaviour
         s.enabled = false;
         this.GetComponent<SentinelleBehaviours>().EMPed = true;
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Bullet")
+        {
+            if (o != null)
+            {
+                o.enabled = false;
+            }
+            s.enabled = false;
+            this.GetComponent<SentinelleBehaviours>().EMPed = true;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
