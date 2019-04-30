@@ -104,7 +104,7 @@ public class NebuController : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.05f);
         Vector3 location = transform.TransformPoint(laserpoint.position);
         GameObject Bullet = Instantiate(laser, laserpoint.position, Quaternion.identity);
         shooting = false;
@@ -135,7 +135,7 @@ public class NebuController : MonoBehaviour
     }
     IEnumerator EMPReset()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(15f);
         test = false;
         EMPUsed = false;
     }
@@ -150,7 +150,7 @@ public class NebuController : MonoBehaviour
 
     IEnumerator CameraSwitch2()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(14f);
         SentCam.SetActive(false);
         OldCamera.SetActive(true);
         yield return new WaitForSeconds(2f);

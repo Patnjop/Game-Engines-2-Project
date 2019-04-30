@@ -19,8 +19,10 @@ public class SentinelleBehaviours : MonoBehaviour
         }
         if (ship.GetComponent<NebuController>().canActivate == true)
         {
+            GetComponent<StateMachine>().ChangeState(new SeekState());
             GetComponent<Seek>().enabled = true;
             GetComponent<Seek>().targetGameObject = target;
+            EMPed = false;
         }
     }
     private void OnTriggerEnter(Collider other)
