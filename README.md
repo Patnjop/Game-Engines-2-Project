@@ -11,10 +11,9 @@ The Nebuchanezzar uses both the Path and Flee behaviour scripts depending on how
 # What I am most proud of in this assignment
 I am most proud of the Sentinelle's behaviours, I was happy to see that my Seperate script worked as intended. It can be a little janky at times but overall I was pleased with it. I also like how the sentinelles merge and cross over eachother at the beginning when you first see them as well as the visual of the wide-shot where the EMP first goes off and all the Sentinelles are visible.
 
-Youtube video of Assignment [!(https://youtu.be/LDsHeReBJmo)]
-![](sent.gif)
+Youtube video of Assignment:
+[![](https://www.youtube.com/upload_thumbnail?v=LDsHeReBJmo&t=hqdefault&ts=1557182686741)](https://youtu.be/LDsHeReBJmo)]
 
-EMP Scene
-[![](http://img.youtube.com/vi/PNK2CrhADo0/0.jpg)](https://www.youtube.com/watch?v=PNK2CrhADo0)
+![](sent.gif)
 
 ![Nebuchadnezzar](https://images4.alphacoders.com/962/thumb-1920-962514.jpg)
