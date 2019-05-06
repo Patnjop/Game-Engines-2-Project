@@ -1,6 +1,15 @@
 # Game-Engines-2-Project
-My project is based on the real world scenes in The Matrix(1999).
-The scene will feature the protagonist's ship; The Nebuchadnezzar flying through the tunnel system sticking to the centre of the path, The Nebuchadnezzar will turn a corner revealing an oncoming sentinelle. The Nebuchadnezzar will react by shutting off it's power and parking as the Sentinelle flys past. Later the Nebuchadnezzar will turn it's power back on as several other sentinelles turn the corner. They will begin to chase the Nebuchadnezzar as it shoots at them. For every sentinelle that is destroyed, more will appear unttl the Nebuchadnezzar eventually uses an EMP to disable the wave of sentinelles and successfully escape.
+Name: Tom Eustace
+Student Number: C16304583
+# Description of the assignment
+This project is an autonomous sci-fi cutscene based on the film The Matrix(1999), initially we see the Nebuchanezzar stationary at the entrance to a tunnel, after a few seconds it begins to move and when it makes it to the end of the tunnel we see that it is being pursued by enemy sentinelles. As the Nebuchanezzar escapes the tunnel we see hundreds more enemies swarming. The Nebuchanezzar fends them off with bullets and EMPS and on the second EMP all of the sentinelles freeze. The Nebuchanezzar uses this time to park in a tunnel and turn off it's power, cloaking it. At the end we see the sentinelles start up again and pass by the tunnel unknowingly.
+# Instructions
+All you have to do is press play
+# How it works
+The Nebuchanezzar uses both the Path and Flee behaviour scripts depending on how close the sentinelles are, The Sentinelles alter between Seek, Offset Pursue and a script that I wrote called Seperate. The Sentinelles initially follow the Seek behaviour until they get close enough to the Nebuchanezzar at which point they switch to Offset Pursue to realign instead of crashing into it. If at any point they get too close to another Sentinelle their other behaviours are overidden by the Seperate. A script on the Nebuchanezzar controls the shooting and EMP aspects and also tells the Sentinelles when to freeze.
+# What I am most proud of in this assignment
+I am most proud of the Sentinelle's behaviours, I was happy to see that my Seperate script worked as intended. It can be a little janky at times but overall I was pleased with it. I also like how the sentinelles merge and cross over eachother at the beginning when you first see them as well as the visual of the wide-shot where the EMP first goes off and all the Sentinelles are visible.
+
 
 ![](sent.gif)
 
