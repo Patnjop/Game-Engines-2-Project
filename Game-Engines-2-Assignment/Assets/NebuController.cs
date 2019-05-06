@@ -31,11 +31,13 @@ public class NebuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //follow initial path while they are far away
         if (Vector3.Distance(sentinelles.position, this.transform.position) < wakeDistance && Vector3.Distance(sentinelles.position, this.transform.position) > jitterDistance && changed == false)
         {
             this.GetComponent<FollowPath>().enabled = true;
             changed = true;
         }
+        //activate other sentinelles and switch speed and behaviour
         if (Vector3.Distance(sentinelles.position, this.transform.position) < jitterDistance && changed2 == false)
         {
             this.GetComponent<FollowPath>().enabled = false;
@@ -48,15 +50,16 @@ public class NebuController : MonoBehaviour
             Sentinelles5.SetActive(true);
             sentinellescollected = true;
         }
+        //create array of sentinelles
         if (sentinellescollected = true && SentinelleArray.Length < 172)
         {
             SentinelleArray = GameObject.FindGameObjectsWithTag("Enemy");
         }
-
+        //set off EMP
         if (Vector3.Distance(sentinelles.position, transform.position) < EMPDistance && Time.time > 53)
         {
             changed2 = true;
-            Debug.Log("biggle");
+            //Debug.Log("biggle");
             if (EMPUsed == false)
             {
                 StartCoroutine("EMP");     
@@ -69,6 +72,7 @@ public class NebuController : MonoBehaviour
                 StartCoroutine("CameraSwitch");
             }
         }
+        //pick a target for shooting
         foreach (GameObject sent in SentinelleArray)
         {
             if (Vector3.Distance(transform.position, sent.transform.position) < 85)
@@ -88,6 +92,7 @@ public class NebuController : MonoBehaviour
         {
             StartCoroutine("CameraSwitch2");
         }
+        //setup CoRoutines to turn off lights
         if (slowdown == true)
         {
             if (GetComponent<Boid>().maxSpeed > 5)

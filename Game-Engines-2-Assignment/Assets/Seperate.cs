@@ -20,12 +20,14 @@ public class Seperate : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
+            //generate force away from other sentinelle
             Vector3 direction = transform.position - other.transform.position;
             transform.Translate(direction * Time.deltaTime);
         }
     }
     private void OnTriggerExit(Collider other)
     {
+        //reset 
         if (other.tag == "Enemy")
         {
             avoided = true;

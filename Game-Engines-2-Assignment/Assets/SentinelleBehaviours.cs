@@ -13,10 +13,12 @@ public class SentinelleBehaviours : MonoBehaviour
     }
     void Update()
     {
+        //When the EMP goes off the second time
         if (ship.GetComponent<NebuController>().EMPCount == 2)
         {
             EMPed = true;
         }
+        //when the sentinelles can reactivate
         if (ship.GetComponent<NebuController>().canActivate == true)
         {
             GetComponent<StateMachine>().ChangeState(new SeekState());
@@ -27,10 +29,11 @@ public class SentinelleBehaviours : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        //Check if it needs to seperate
         if (other.tag == "Enemy")
         {
             GetComponent<Seperate>().avoided = false;
-            Debug.Log("Collision" + gameObject.name + " " + other.gameObject.name);
+            //Debug.Log("Collision" + gameObject.name + " " + other.gameObject.name);
             GetComponent<StateMachine>().ChangeState(new SeperateState());
         }
     }
