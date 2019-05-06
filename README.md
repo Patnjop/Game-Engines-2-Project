@@ -9,7 +9,7 @@ All you have to do is press play
 # How it works
 The Nebuchanezzar uses both the Path and Flee behaviour scripts depending on how close the sentinelles are, The Sentinelles alter between Seek, Offset Pursue and a script that I wrote called Seperate. The Sentinelles initially follow the Seek behaviour until they get close enough to the Nebuchanezzar at which point they switch to Offset Pursue to realign instead of crashing into it. If at any point they get too close to another Sentinelle their other behaviours are overidden by the Seperate. A script on the Nebuchanezzar controls the shooting and EMP aspects and also tells the Sentinelles when to freeze.
 # What I am most proud of in this assignment
-I am most proud of the Sentinelle's behaviours, I was happy to see that my Seperate script worked as intended. It can be a little janky at times but overall I was pleased with it. I also like how the sentinelles merge and cross over eachother at the beginning when you first see them as well as the visual of the wide-shot where the EMP first goes off and all the Sentinelles are visible.
+I am most proud of the Sentinelle's behaviours, I was happy to see that my Seperate script worked as intended and that I operated their behaviours through the State system. It can be a little janky at times but overall I was pleased with it. I also like how the sentinelles merge and cross over eachother at the beginning when you first see them as well as the visual of the wide-shot where the EMP first goes off and all the Sentinelles are visible.
 
 Click the Nebuchanezzar for Youtube video of Assignment:
 [![](https://images4.alphacoders.com/962/thumb-1920-962514.jpg)](https://www.youtube.com/watch?v=LDsHeReBJmo&)]
