@@ -104,7 +104,7 @@ public class NebuController : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.2f);
         Vector3 location = transform.TransformPoint(laserpoint.position);
         GameObject Bullet = Instantiate(laser, laserpoint.position, Quaternion.identity);
         shooting = false;
@@ -159,12 +159,12 @@ public class NebuController : MonoBehaviour
 
     IEnumerator SwitchOff()
     {
+        canActivate = true;
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < Lights.Length; i++)
         {
             yield return new WaitForSeconds(0.5f);
             Lights[i].SetActive(false);
         }
-        canActivate = true;
     }
 }
